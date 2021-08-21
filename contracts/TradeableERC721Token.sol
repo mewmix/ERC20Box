@@ -15,7 +15,8 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol"
 
 
-contract OwnableDelegateProxy {}
+
+contract OwnableDelegateProxy { ]
 
 contract ProxyRegistry {
     mapping(address => OwnableDelegateProxy) public proxies;
