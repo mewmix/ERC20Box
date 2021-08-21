@@ -7,9 +7,9 @@ Mostly copied from OpenSea https://github.com/ProjectOpenSea/opensea-creatures/b
 pragma solidity ^0.4.25;
 
 import "./Strings.sol";
-import "openzeppelin-solidity/contracts/token/ERC721/ERC721Token.sol";
-import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721Token.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 
 
