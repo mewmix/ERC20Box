@@ -51,9 +51,9 @@ contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage {
    * @param _to address to be approved for the given token ID
    * @param _tokenIds uint256[] IDs of the tokens to be approved
    */
-    function approveBulk(address _to, uint256[] _tokenIds) public {
-        for (uint256 i = 0; i < _tokenIds.length; i++) {
-            approve(_to, _tokenIds[i]);
+    function approveBulk(address _to, uint256[] _tokenId) public {
+        for (uint256 i = 0; i < _tokenId.length; i++) {
+            approve(_to, _tokenId[i]);
         }
     }
 
