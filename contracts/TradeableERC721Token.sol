@@ -4,7 +4,7 @@ Abstract contract which allows trading to some external (contract) party
 Mostly copied from OpenSea https://github.com/ProjectOpenSea/opensea-creatures/blob/master/contracts/TradeableERC721Token.sol
 
 */
-pragma solidity ^0.4.25;
+pragma solidity ^0.6.6;
 
 import "./Strings.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721Token.sol";
