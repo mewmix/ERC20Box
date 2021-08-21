@@ -24,7 +24,7 @@ contract ProxyRegistry {
  * @title TradeableERC721Token
  * TradeableERC721Token - ERC721 contract that whitelists a trading address, and has minting functionality.
  */
-contract TradeableERC721Token is ERC721Token, Ownable {
+contract TradeableERC721Token is ERC721, Ownable {
     using SafeMath for uint256;
     using Strings for string;
 
@@ -32,7 +32,7 @@ contract TradeableERC721Token is ERC721Token, Ownable {
     address proxyRegistryAddress;
     string baseURI;
 
-    constructor(string _name, string _symbol, address _proxyRegistryAddress, string _baseTokenURI) ERC721Token(_name, _symbol) public {
+    constructor(string _name, string _symbol, address _proxyRegistryAddress, string _baseTokenURI) ERC721(_name, _symbol) public {
         proxyRegistryAddress = _proxyRegistryAddress;
         baseURI = _baseTokenURI;
     }
