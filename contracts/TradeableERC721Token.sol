@@ -25,7 +25,7 @@ contract ProxyRegistry {
  * @title TradeableERC721Token
  * TradeableERC721Token - ERC721 contract that whitelists a trading address, and has minting functionality.
  */
-contract TradeableERC721Token is ERC721, Ownable {
+contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage {
     using SafeMath for uint256;
     using Strings for string;
 
