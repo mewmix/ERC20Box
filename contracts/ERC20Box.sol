@@ -36,7 +36,7 @@ contract ERC20Box is TradeableERC721Token {
         }
     }
 
-    function unpack(uint256 _tokenId) public onlyOwnerOf(_tokenId){
+    function unpack(uint256 _tokenId) public onlyOwner(_tokenId){
         require(token.balanceOf(this) >= tokensPerBox, "Hmm, been opened already?");
         require(token.transfer(msg.sender, tokensPerBox), "Couldn't transfer token");
 
