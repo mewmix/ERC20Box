@@ -1,7 +1,7 @@
 pragma solidity ^0.4.25;
 
 import "./TradeableERC721Token.sol";
-import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 /**
  * @title ERC20Box
