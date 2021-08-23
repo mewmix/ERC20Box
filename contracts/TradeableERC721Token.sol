@@ -51,7 +51,7 @@ contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage, ERC721Enumer
    * @param _to address to be approved for the given token ID
    * @param _tokenIds uint256[] IDs of the tokens to be approved
    */
-    function approveBulk(address _to, uint256[] _tokenIds) public {
+    function approveBulk(address _to, uint256[] memory _tokenIds) public {
         for (uint256 i = 0; i < _tokenIds.length; i++) {
             approve(_to, _tokenIds[i]);
         }
@@ -110,7 +110,7 @@ contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage, ERC721Enumer
     /// @notice Returns a list of all tokens assigned to an address.
     /// @param _owner The owner whose tokens we are interested in.
     /// @dev This method MUST NEVER be called by smart contract code, due to the price
-    function tokensOfOwner(address _owner) external view returns(uint256[] ownerTokens) {
+    function tokensOfOwner(address _owner) external view returns(uint256[] memory ownerTokens) {
         uint256 tokenCount = balanceOf(_owner);
 
         if (tokenCount == 0) {
