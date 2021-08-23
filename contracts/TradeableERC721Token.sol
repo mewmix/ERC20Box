@@ -32,7 +32,7 @@ contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage, ERC721Enumer
     address proxyRegistryAddress;
     string baseURI;
 
-    constructor(string _name, string _symbol, address _proxyRegistryAddress, string _baseTokenURI) ERC721(_name, _symbol) public {
+    constructor(string memory _name, string memory _symbol, address _proxyRegistryAddress, string memory _baseTokenURI) ERC721(_name, _symbol) public {
         proxyRegistryAddress = _proxyRegistryAddress;
         baseURI = _baseTokenURI;
     }
