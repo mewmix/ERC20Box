@@ -1,4 +1,4 @@
-# ERC20Box
+# ERC20Box - Updated 2021 for 0.8.0
 ERC-721 token that wraps a portion of ERC-20
 
 The idea is to have a sort of the tradable and transferrable loot-box, which holds a portion of ERC-20 tokens inside.
