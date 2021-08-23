@@ -41,9 +41,10 @@ contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage, ERC721Enumer
       * @dev Mints a token to an address with a tokenURI.
       * @param _to address of the future owner of the token
       */
-    constructor mintTo(address _to, msg.sender) public  {
+   constructor mintTo(address _to) public onlyOwner {
         uint256 newTokenId = _getNextTokenId();
         _mint(_to, newTokenId);
+        _incrementTokenId();
     }
 
     /**
