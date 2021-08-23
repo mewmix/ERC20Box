@@ -32,7 +32,7 @@ contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage, ERC721Enumer
     address proxyRegistryAddress;
     string baseURI;
 
-    constructor(string memory _name, string memory _symbol, address _proxyRegistryAddress, string memory _baseTokenURI) ERC721(_name, _symbol) public {
+    constructor (string memory _name, string memory _symbol, address _proxyRegistryAddress, string memory _baseTokenURI) ERC721(_name, _symbol) public {
         proxyRegistryAddress = _proxyRegistryAddress;
         baseURI = _baseTokenURI;
     }
@@ -41,7 +41,7 @@ contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage, ERC721Enumer
       * @dev Mints a token to an address with a tokenURI.
       * @param _to address of the future owner of the token
       */
-   constructor mintTo(address _to) public onlyOwner {
+   function mintTo(address _to) public onlyOwner {
         uint256 newTokenId = _getNextTokenId();
         _mint(_to, newTokenId);
         _incrementTokenId();
@@ -52,7 +52,8 @@ contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage, ERC721Enumer
    * @param _to address to be approved for the given token ID
    * @param _tokenIds uint256[] IDs of the tokens to be approved
    */
-    constructor approveBulk(address _to, uint256[] memory _tokenIds) public {
+    
+    approveBulk(address _to, uint256[] memory _tokenIds) public {
         for (uint256 i = 0; i < _tokenIds.length; i++) {
             approve(_to, _tokenIds[i]);
         }
@@ -62,23 +63,23 @@ contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage, ERC721Enumer
       * @dev calculates the next token ID based on totalSupply and the burned offset
       * @return uint256 for the next token ID
       */
-    constructor _getNextTokenId() private view returns (uint256) {
+    function _getNextTokenId() private view returns (uint256) {
         return totalSupply().add(1).add(burnedCounter);
     }
 
     /**
       * @dev extends default burn functionality with the the burned counter
       */
-    constructor _burn(address _owner, uint256 _tokenId) internal {
+    function _burn(address _owner, uint256 _tokenId) internal {
         super._burn(_owner, _tokenId);
         burnedCounter++;
     }
 
-    constructor baseTokenURI() public view returns (string memory) {
+    function baseTokenURI() public view returns (string memory) {
         return baseURI;
     }
 
-    constructor tokenURI(uint256 _tokenId) public view returns (string memory) {
+    function tokenURI(uint256 _tokenId) public view returns (string memory) {
         return Strings.strConcat(
             baseTokenURI(),
             Strings.uint2str(_tokenId)
@@ -88,7 +89,7 @@ contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage, ERC721Enumer
     /**
      * Override isApprovedForAll to whitelist user's OpenSea proxy accounts to enable gas-less listings.
      */
-    constructor isApprovedForAll(
+    function isApprovedForAll(
         address owner,
         address operator
     )
