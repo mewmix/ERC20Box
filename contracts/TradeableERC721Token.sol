@@ -51,7 +51,7 @@ contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage, ERC721Enumer
    * @param _to address to be approved for the given token ID
    * @param _tokenIds uint256[] IDs of the tokens to be approved
    */
-    function approveBulk(address _to, uint256[] _tokenIds) public {
+    function approveBulk(address _to, uint256[] _tokenIds memory) public {
         for (uint256 i = 0; i < _tokenIds.length; i++) {
             approve(_to, _tokenIds[i]);
         }
@@ -73,11 +73,11 @@ contract TradeableERC721Token is ERC721, Ownable, ERC721URIStorage, ERC721Enumer
         burnedCounter++;
     }
 
-    function baseTokenURI() public view returns (string) {
+    function baseTokenURI() public view returns (string memory) {
         return baseURI;
     }
 
-    function tokenURI(uint256 _tokenId) public view returns (string) {
+    function tokenURI(uint256 _tokenId) public view returns (string memory) {
         return Strings.strConcat(
             baseTokenURI(),
             Strings.uint2str(_tokenId)
