@@ -39,7 +39,7 @@ contract ProxyRegistry is Ownable {
  * @title TradeableERC721Token
  * @notice ERC721 contract that whitelists a trading address, and has minting functionality.
  */
-contract TradeableERC721Token is ERC721, Ownable, ERC721Enumerable, ERC721URIStorage {
+contract TradeableERC721Token is ERC721, Ownable {
   using Strings for string;
 
   address proxyRegistryAddress;
