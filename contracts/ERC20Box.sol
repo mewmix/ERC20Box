@@ -1,6 +1,6 @@
 pragma solidity ^0.8.0;
 
-import "./TradeableERC721Token.sol";
+import "./ERC721Tradable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 /**
