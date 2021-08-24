@@ -39,13 +39,13 @@ contract ProxyRegistry is Ownable {
  * @title TradeableERC721Token
  * @notice ERC721 contract that whitelists a trading address, and has minting functionality.
  */
-contract TradeableERC721Token is ERC721Full, Ownable {
+contract TradeableERC721Token is ERC721, Ownable, ERC721Enumerable, ERC721URIStorage {
   using Strings for string;
 
   address proxyRegistryAddress;
   uint256 private _currentTokenId = 0;
 
-  constructor(string memory name, string memory symbol, address registryAddress) ERC721Full(name, symbol) public {
+  constructor(string memory name, string memory symbol, address registryAddress) ERC721(name, symbol) public {
     proxyRegistryAddress = registryAddress;
   }
 
