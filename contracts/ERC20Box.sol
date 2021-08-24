@@ -30,14 +30,14 @@ contract ERC20Box is ERC721Tradable {
     // or this contract will not be able to do the transfer on your behalf.
     function depositERC(uint256 amount) public onlyOwner {
         require(amount % tokensPerBox == 0, "Wrong amount of tokens!");
-        require(token.transferFrom(msg.sender, this, amount), "Insufficient funds");
+        require(token.transferFrom(msg.sender, address this, amount), "Insufficient funds");
         for(uint i = 0; i < amount.div(tokensPerBox); i++) {
             mintTo(msg.sender);
         }
     }
 
     function unpack(uint256 _tokenId) public onlyOwner(_tokenId){
-        require(token.balanceOf(this) >= tokensPerBox, "Hmm, been opened already?");
+        require(token.balanceOf(address this) >= tokensPerBox, "Hmm, been opened already?");
         require(token.transfer(msg.sender, tokensPerBox), "Couldn't transfer token");
 
         // Burn the box.
