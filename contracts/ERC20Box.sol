@@ -19,8 +19,8 @@ contract ERC20Box is ERC721Tradable {
    * @dev Constructor function
    * Important! This ERC20Box is not functional until depositERC() is called
    */
-    constructor(string memory _name, string memory _symbol, address _proxyRegistryAddress, address _tokenAddress,
-    uint256 _tokensPerBox, string memory _baseTokenURI)
+    constructor(string memory _name, string memory _symbol, address _proxyRegistryAddress, 
+    address _tokenAddress, uint256 _tokensPerBox, string memory _baseTokenURI)
     ERC721Tradable(_name, _symbol, _proxyRegistryAddress, _baseTokenURI) public {
         token = ERC20(_tokenAddress);
         tokensPerBox = _tokensPerBox;
