@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
  * A tradable box (ERC-721), OpenSee.io compliant, which holds a portion of ERC-20 tokens,
  * that get credited to the owner upon 'opening' it
  */
-contract ERC20Box is ERC721Tradable {
+abstract contract ERC20Box is ERC721Tradable {
 
     ERC20 public token;
 
