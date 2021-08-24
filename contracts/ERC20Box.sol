@@ -21,7 +21,7 @@ contract ERC20Box is ERC721Tradable {
    */
     constructor(string memory _name, string memory _symbol, address _proxyRegistryAddress, address _tokenAddress,
     uint256 _tokensPerBox, string memory _baseTokenURI)
-    TradeableERC721Token(_name, _symbol, _proxyRegistryAddress, _baseTokenURI) public {
+    ERC721Tradable(_name, _symbol, _proxyRegistryAddress, _baseTokenURI) public {
         token = ERC20(_tokenAddress);
         tokensPerBox = _tokensPerBox;
     }
