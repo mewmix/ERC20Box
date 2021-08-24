@@ -11,7 +11,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
  */
 abstract contract ERC20Box is ERC721Tradable {
 
-    ERC20 public token;
+    ERC20 token;
 
     uint256 tokensPerBox;
 
@@ -21,14 +21,14 @@ abstract contract ERC20Box is ERC721Tradable {
    */
     constructor(string memory _name, string memory _symbol, address _proxyRegistryAddress, 
     address _tokenAddress, uint256 _tokensPerBox, string memory _baseTokenURI)
-    ERC721Tradable(_name, _symbol, _proxyRegistryAddress, _baseTokenURI) public {
+    ERC721Tradable(_name, _symbol, _proxyRegistryAddress, _baseTokenURI)  {
         token = ERC20(_tokenAddress);
         tokensPerBox = _tokensPerBox;
     }
 
     // Important! remember to call ERC20(address).approve(this, amount)
     // or this contract will not be able to do the transfer on your behalf.
-    function depositERC(uint256 amount) public onlyOwner {
+    function depositERC(uint256 amount)  onlyOwner {
         require(amount % tokensPerBox == 0, "Wrong amount of tokens!");
         require(token.transferFrom(msg.sender, this, amount), "Insufficient funds");
         for(uint i = 0; i < amount.div(tokensPerBox); i++) {
@@ -36,7 +36,7 @@ abstract contract ERC20Box is ERC721Tradable {
         }
     }
 
-    function unpack(uint256 _tokenId) public onlyOwner(_tokenId){
+    function unpack(uint256 _tokenId) onlyOwner(_tokenId){
         require(token.balanceOf(this) >= tokensPerBox, "Hmm, been opened already?");
         require(token.transfer(msg.sender, tokensPerBox), "Couldn't transfer token");
 
@@ -47,7 +47,7 @@ abstract contract ERC20Box is ERC721Tradable {
     /**
    * @dev OpenSee compatibility, expects user-friendly number
    */
-    function itemsPerLootbox() public view returns (uint256) {
+    function itemsPerLootbox() view returns (uint256) {
         return tokensPerBox.div(10**18);
     }
 }
